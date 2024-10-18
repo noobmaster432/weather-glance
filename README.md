@@ -1,6 +1,7 @@
 # Weather Glance
 
 **Weather Glance** is a real-time data processing system designed to monitor weather conditions across major metros in India. Built with **Next.js**, the system retrieves weather data from the OpenWeatherMap API, processes it to provide summarized insights, and allows users to configure alert thresholds based on weather conditions. The system also features visualizations of weather summaries, historical trends, and triggered alerts.
+
 ![weather-glance vercel app_](https://github.com/user-attachments/assets/f7dbc195-c834-411c-b420-85ccd742df81)
 
 
