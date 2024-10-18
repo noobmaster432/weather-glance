@@ -55,7 +55,7 @@ The system monitors the weather in the following Indian cities:
 3. **Configure environment variables**:
    Create a `.env.local` file in the root directory with the following information:
    ```plaintext
-   OPENWEATHERMAP_API_KEY=your_api_key
+   NEXT_PUBLIC_OPEN_WEATHER_API_KEY=your_api_key
    ```
 
 4. **Start the development server**:
