@@ -8,10 +8,13 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useGlobalContext } from "@/app/context/globalContext";
+import { Skeleton } from "../ui/skeleton";
 
 export default function AirPollution() {
-
   const { airQuality } = useGlobalContext();
+  if (!airQuality) {
+    return <Skeleton className="h-[12rem] w-full" />;
+  }
 
   return (
     <Card
