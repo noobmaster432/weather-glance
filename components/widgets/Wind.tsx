@@ -16,7 +16,7 @@ function Wind() {
   const windSpeed = forecast.wind?.speed;
   const windDir = forecast.wind?.deg;
 
-  if (!forecast) {
+  if (!windSpeed || !windDir) {
     return <Skeleton className="h-[12rem] w-full" />;
   }
 

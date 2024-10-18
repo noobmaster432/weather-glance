@@ -1,10 +1,12 @@
 "use client";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useGlobalContext } from "@/app/context/globalContext";
-import { calender } from "@/lib/Icons";
+import { calender, clearSky } from "@/lib/Icons";
 import { kelvinToCelsius, unixToDay } from "@/lib/misc";
 import { Skeleton } from "@/components/ui/skeleton";
 import React from "react";
+import { TemperatureRange } from "../ui/temperature-range";
 
 function FiveDayForecast() {
   const { fiveDayForecast } = useGlobalContext();
@@ -50,39 +52,43 @@ function FiveDayForecast() {
   }
 
   return (
-    <div
-      className="pt-6 pb-5 px-4 flex-1 border rounded-lg flex flex-col
-        justify-between dark:bg-dark-grey shadow-sm dark:shadow-none"
-    >
-      <div>
-        <h2 className="flex items-center gap-2 font-medium">
+    <Card className="h-fit shrink-0">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 font-medium">
           {calender} 5-Day Forecast
-        </h2>
-
-        <div className="forecast-list pt-3">
-          {dailyForecasts.map((day, i) => {
-            return (
-              <div
-                key={i}
-                className="daily-forevast py-4 flex flex-col justify-evenly border-b-2"
-              >
-                <p className="text-xl min-w-[3.5rem]">{day.day}</p>
-                <p className="text-sm flex justify-between">
-                  <span>(low)</span>
-                  <span>(high)</span>
-                </p>
-
-                <div className="flex-1 flex items-center justify-between gap-4">
-                  <p className="font-bold">{day.minTemp}°C</p>
-                  <div className="temperature flex-1 w-full h-2 rounded-lg"></div>
-                  <p className="font-bold">{day.maxTemp}°C</p>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-2 text-base font-normal md:mb-1">
+        {dailyForecasts.map((day, i) => (
+          <div key={i}>
+            <div className="flex w-full flex-row items-center justify-between gap-2 last:mb-0">
+              <p className="min-w-[3rem] font-medium">
+                {i === 0
+                  ? "Today"
+                  : day.day}
+              </p>
+              <p>{clearSky}</p>
+              <div className="flex w-[60%] flex-row gap-2 overflow-hidden">
+                <div className="flex w-full select-none flex-row items-center justify-between gap-2 pr-2 text-sm">
+                  <p className="flex w-[3rem] min-w-fit justify-end text-neutral-600 dark:text-neutral-400">
+                    {Math.floor(day.minTemp)}&deg;
+                  </p>
+                  <TemperatureRange
+                    min={15}
+                    max={32}
+                    value={[day.minTemp, day.maxTemp]}
+                  />
+                  <p className="flex w-[3rem] min-w-fit justify-end">
+                    {Math.floor(day.maxTemp)}&deg;
+                  </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
+            </div>
+            {/* {i !== day.list.length - 1 && <Separator className="mt-3" />} */}
+          </div>
+        ))}
+      </CardContent>
+    </Card>
   );
 }
 

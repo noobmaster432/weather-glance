@@ -11,6 +11,8 @@ import Visibility from "@/components/widgets/Visibility";
 import Wind from "@/components/widgets/Wind";
 import { useGlobalContextUpdate } from "./context/globalContext";
 import defaultStates from "@/lib/defaultStates";
+import { CodeIcon, HeartIcon } from "@radix-ui/react-icons";
+import AirPollution from "@/components/widgets/AirPollution";
 
 export default function Home() {
   const { setActiveCityCoords } = useGlobalContextUpdate();
@@ -47,7 +49,7 @@ export default function Home() {
         </div>
       </div>
       <div className="pb-4 flex flex-col gap-4 md:flex-row">
-        <div className="flex flex-col gap-4 w-full min-w-[18rem] md:w-[35rem]">
+        <div className="flex flex-col gap-4 w-full min-w-72 md:w-[32rem]">
           <Temperature />
           <FiveDayForecast />
         </div>
@@ -55,19 +57,27 @@ export default function Home() {
           <div className="instruments grid gap-4 sm-2:col-span-2 lg:grid-cols-3 xl:grid-cols-4">
             <Sunset />
             <Wind />
-            <DailyForecast />
             <FeelsLike />
             <Humidity />
+            <DailyForecast />
             <Visibility />
             <Pressure />
+            <AirPollution />
           </div>
         </div>
       </div>
 
-      <footer className="py-4 flex justify-center pb-8">
-        <p className="footer-text text-sm flex items-center gap-1">
-          Code by Noobmaster
-        </p>
+      <footer className="py-4">
+        <div
+          className="group cursor-pointer flex items-center justify-center gap-1 text-neutral-400 dark:text-neutral-600"
+          aria-hidden={true}
+        >
+          <CodeIcon className="h-5 w-5 group-hover:text-slate-400" />
+          <span>with</span>
+          <HeartIcon className="h-4 w-4 group-hover:text-red-500" />
+          <span>by </span>
+          <span className="text-red-400">Noobmaster</span>
+        </div>
       </footer>
     </main>
   );
