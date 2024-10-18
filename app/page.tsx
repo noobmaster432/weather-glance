@@ -1,14 +1,14 @@
 "use client";
 
-import DailyForecast from "@/components/DailyForecast/DailyForecast";
-import FeelsLike from "@/components/FeelsLike/FeelsLike";
-import FiveDayForecast from "@/components/FiveDayForecast/FiveDayForecast";
-import Humidity from "@/components/Humidity/Humidity";
-import Pressure from "@/components/Pressure/Pressure";
-import Sunset from "@/components/Sunset/Sunset";
-import Temperature from "@/components/Temperature/Temperature";
-import Visibility from "@/components/Visibility/Visibility";
-import Wind from "@/components/Wind/Wind";
+import DailyForecast from "@/components/widgets/DailyForecast";
+import FeelsLike from "@/components/widgets/FeelsLike";
+import FiveDayForecast from "@/components/widgets/FiveDayForecast";
+import Humidity from "@/components/widgets/Humidity";
+import Pressure from "@/components/widgets/Pressure";
+import Sunset from "@/components/widgets/Sunset";
+import Temperature from "@/components/widgets/Temperature";
+import Visibility from "@/components/widgets/Visibility";
+import Wind from "@/components/widgets/Wind";
 import { useGlobalContextUpdate } from "./context/globalContext";
 import defaultStates from "@/lib/defaultStates";
 
